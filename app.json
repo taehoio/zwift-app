@@ -13,7 +13,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.xissy.zwiftapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -31,6 +32,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "119c558b-7261-4461-b8b9-90c3d05750ae"
+      }
+    },
+    "owner": "xissy"
   }
 }
