@@ -1,6 +1,7 @@
 import { Text, type TextProps, StyleSheet } from 'react-native';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
+import { preview } from 'react-native-ide';
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -58,3 +59,5 @@ const styles = StyleSheet.create({
     color: '#0a7ea4',
   },
 });
+
+preview(<ThemedText type='title'>Hello World</ThemedText>);
