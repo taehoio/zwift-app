@@ -1,12 +1,28 @@
 import { Tabs } from "expo-router";
-import { cssInterop } from "nativewind";
+import { useColorScheme } from "nativewind";
 import React from "react";
 
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
+import { colors } from "@/constants/Colors";
 
 export default function TabLayout() {
+  const { colorScheme } = useColorScheme();
+  const isDark = colorScheme === "dark";
+
   return (
-    <TabsContainer tabBarClassName="bg-background text-secondary-600">
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: isDark
+            ? colors.dark.background
+            : colors.light.background,
+        },
+        tabBarActiveTintColor: isDark
+          ? colors.dark.secondary
+          : colors.light.secondary,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -31,27 +47,6 @@ export default function TabLayout() {
           ),
         }}
       />
-    </TabsContainer>
+    </Tabs>
   );
 }
-
-function TabsContainer({ tabBarClassName, ...props }: any) {
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarStyle: {
-          backgroundColor: tabBarClassName.backgroundColor,
-        },
-        tabBarActiveTintColor: tabBarClassName.color,
-        headerShown: false,
-      }}
-      {...props}
-    />
-  );
-}
-
-cssInterop(TabsContainer, {
-  tabBarClassName: {
-    target: false,
-  },
-});
