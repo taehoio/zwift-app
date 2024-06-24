@@ -1,34 +1,31 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import { cssInterop } from "nativewind";
+import React from "react";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { cssInterop, useColorScheme } from 'nativewind';
+import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 
 export default function TabLayout() {
-  const { colorScheme } = useColorScheme();
-  console.log(colorScheme);
-
   return (
-    <TabsContainer tabBarClassName='bg-background text-secondary-600'>
+    <TabsContainer tabBarClassName="bg-background text-secondary-600">
       <Tabs.Screen
-        name='index'
+        name="index"
         options={{
-          title: 'Home',
+          title: "Home",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? 'home' : 'home-outline'}
+              name={focused ? "home" : "home-outline"}
               color={color}
             />
           ),
         }}
       />
       <Tabs.Screen
-        name='explore'
+        name="explore"
         options={{
-          title: 'Explore',
+          title: "Explore",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? 'code-slash' : 'code-slash-outline'}
+              name={focused ? "code-slash" : "code-slash-outline"}
               color={color}
             />
           ),

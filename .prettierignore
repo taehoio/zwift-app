@@ -1,0 +1,9 @@
+coverage/
+build/
+drizzle/
+
+pnpm-lock.yaml
+*.d.ts
+supabase.database.type.ts
+
+**/*.zod.*
