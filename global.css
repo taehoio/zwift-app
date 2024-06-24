@@ -4,9 +4,6 @@
 
 @layer base {
   :root {
-    --color-primary: 255 115 179;
-    --color-secondary: 111 114 185;
-
     --color-bunker: 111 119 136;
     --color-bunker-50: 247 248 248;
     --color-bunker-100: 237 238 241;
