@@ -1,9 +1,7 @@
-import { Image, StyleSheet, Platform, View } from 'react-native';
+import { Image, Platform, View, Text } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
   return (
@@ -12,63 +10,54 @@ export default function HomeScreen() {
       headerImage={
         <Image
           source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          className='h-[179] w-[290] absolute bottom-0 left-0'
         />
       }
     >
       <View className='flex flex-row items-center'>
-        <ThemedText type='title'>Welcome!</ThemedText>
+        <Text className='text-4xl font-bold text-foreground'>Welcome!</Text>
         <HelloWave />
       </View>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type='subtitle'>Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{' '}
-          <ThemedText type='defaultSemiBold'>app/(tabs)/index.tsx</ThemedText>{' '}
-          to see changes. Press{' '}
-          <ThemedText type='defaultSemiBold'>
+
+      <View className='gap-2 mb-2'>
+        <Text className='text-2xl font-bold text-foreground'>
+          Step 1: Try it
+        </Text>
+
+        <Text className='text-foreground text-lg'>
+          Edit <Text className='font-bold'>app/(tabs)/index.tsx</Text> to see
+          changes. Press{' '}
+          <Text className='font-bold'>
             {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
+          </Text>{' '}
           to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type='subtitle'>Step 2: Explore</ThemedText>
-        <ThemedText>
+        </Text>
+      </View>
+
+      <View className='gap-2 mb-2'>
+        <Text className='text-2xl font-bold text-foreground'>
+          Step 2: Explore
+        </Text>
+
+        <Text className='text-foreground text-lg'>
           Tap the Explore tab to learn more about what's included in this
           starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type='subtitle'>Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
+        </Text>
+      </View>
+
+      <View className='gap-2 mb-2'>
+        <Text className='text-2xl font-bold text-foreground'>
+          Step 3: Get a fresh start
+        </Text>
+
+        <Text className='text-foreground text-lg'>
           When you're ready, run{' '}
-          <ThemedText type='defaultSemiBold'>npm run reset-project</ThemedText>{' '}
-          to get a fresh <ThemedText type='defaultSemiBold'>app</ThemedText>{' '}
-          directory. This will move the current{' '}
-          <ThemedText type='defaultSemiBold'>app</ThemedText> to{' '}
-          <ThemedText type='defaultSemiBold'>app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
+          <Text className='font-bold'>npm run reset-project</Text> to get a
+          fresh <Text className='font-bold'>app</Text> directory. This will move
+          the current <Text className='font-bold'>app</Text> to{' '}
+          <Text className='font-bold'>app-example</Text>.
+        </Text>
+      </View>
     </ParallaxScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
