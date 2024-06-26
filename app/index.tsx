@@ -1,38 +1,39 @@
-import { Link, useNavigation } from "expo-router";
+import { useQuery } from "@tanstack/react-query";
 import { cssInterop } from "nativewind";
-import { useLayoutEffect } from "react";
-import { SafeAreaView, ScrollView, Text } from "react-native";
+import { ScrollView, Text } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { Button } from "@/components/button";
+import { getEvents } from "@/api/events";
+import { EventList } from "@/components/event-list";
+import { cn } from "@/styles";
 
 const ScrollViewContainer = cssInterop(ScrollView, {
-  contentClassName: "contentContainerStyle",
+  contentContainerClassName: "contentContainerStyle",
 });
 
 export default function HomeScreen() {
-  const navigatior = useNavigation();
+  const insets = useSafeAreaInsets();
 
-  useLayoutEffect(() => {
-    navigatior.setOptions({
-      headerTitle: (props: any) => (
-        <Text className="text-2xl font-bold text-foreground" {...props}>
-          Zwift Events
-        </Text>
-      ),
-    });
-  }, [navigatior]);
+  const query = useQuery({
+    queryKey: ["events"],
+    queryFn: getEvents,
+  });
 
   return (
-    <SafeAreaView className="flex-1 bg-background">
-      <ScrollViewContainer contentClassName="flex-1 items-center justify-center">
-        <Link
-          push
-          href={{ pathname: "/welcome", params: { title: "123" } }}
-          asChild
-        >
-          <Button>Welcome!</Button>
-        </Link>
-      </ScrollViewContainer>
-    </SafeAreaView>
+    <ScrollViewContainer
+      style={{
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+        paddingLeft: insets.left,
+        paddingRight: insets.right,
+      }}
+      contentContainerClassName={cn({
+        "flex-1 items-center justify-center": query.isLoading,
+      })}
+    >
+      {query.isLoading && <Text className="text-foreground">Loading...</Text>}
+      {query.isError && <Text className="text-foreground">Error</Text>}
+      {query.isSuccess && <EventList eventsWithRoute={query.data} />}
+    </ScrollViewContainer>
   );
 }

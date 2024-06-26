@@ -14,7 +14,7 @@
     --color-bunker-600: 89 96 112;
     --color-bunker-700: 73 79 91;
     --color-bunker-800: 63 67 77;
-    --color-bunker-900: 55 58 67;
+    --color-bunker-900: 35 38 47;
     --color-bunker-950: 20 21 24;
 
     --color-orange: 252 103 25;
@@ -54,7 +54,7 @@
 
     --color-default: var(--color-bunker);
     --color-default-50: var(--color-bunker-50);
-    --color-defaul-100: var(--color-bunker-100);
+    --color-default-100: var(--color-bunker-100);
     --color-default-200: var(--color-bunker-200);
     --color-default-300: var(--color-bunker-300);
     --color-default-400: var(--color-bunker-400);
@@ -62,7 +62,7 @@
     --color-default-600: var(--color-bunker-600);
     --color-default-700: var(--color-bunker-700);
     --color-default-800: var(--color-bunker-800);
-    --color-default-800: var(--color-bunker-900);
+    --color-default-900: var(--color-bunker-900);
     --color-default-850: var(--color-bunker-950);
 
     --color-primary: var(--color-orange);
@@ -100,7 +100,7 @@
 
     --color-default: var(--color-bunker);
     --color-default-50: var(--color-bunker-950);
-    --color-defaul-100: var(--color-bunker-900);
+    --color-default-100: var(--color-bunker-900);
     --color-default-200: var(--color-bunker-800);
     --color-default-300: var(--color-bunker-700);
     --color-default-400: var(--color-bunker-600);
@@ -108,7 +108,7 @@
     --color-default-600: var(--color-bunker-400);
     --color-default-700: var(--color-bunker-300);
     --color-default-800: var(--color-bunker-200);
-    --color-default-800: var(--color-bunker-100);
+    --color-default-900: var(--color-bunker-100);
     --color-default-850: var(--color-bunker-50);
 
     --color-primary: var(--color-orange);
