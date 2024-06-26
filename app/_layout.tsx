@@ -41,19 +41,6 @@ export default function RootLayout() {
           initialRouteName="index"
           screenOptions={{
             headerShown: false,
-            headerTitleStyle: {
-              fontSize: 20,
-              fontWeight: "bold",
-            },
-            headerStyle: {
-              // backgroundColor: isDark
-              //   ? colors.dark.background
-              //   : colors.light.background,
-            },
-            headerTintColor: isDark
-              ? colors.dark.primary
-              : colors.light.primary,
-            // headerTransparent: true,
             contentStyle: {
               backgroundColor: isDark
                 ? colors.dark.background
@@ -61,27 +48,7 @@ export default function RootLayout() {
             },
           }}
         >
-          <Stack.Screen
-            name="index"
-            options={{
-              headerTitle: (props: any) => (
-                <Text className="text-2xl font-bold text-foreground" {...props}>
-                  Zwift Events
-                </Text>
-              ),
-            }}
-          />
-          <Stack.Screen
-            name="welcome"
-            options={{
-              headerTitle: (props: any) => (
-                <Text className="text-2xl font-bold text-foreground" {...props}>
-                  Welcome!
-                </Text>
-              ),
-            }}
-          />
-
+          <Stack.Screen name="welcome" />
           <Stack.Screen name="+not-found" />
         </Stack>
       </SafeAreaProvider>

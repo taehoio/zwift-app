@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 import {
   ChevronRightIcon,
@@ -14,26 +14,31 @@ import { SubgroupBadges } from "@/components/subgroup-badge";
 import { cn } from "@/styles";
 import { EventWithRoute } from "@/types/zwift.type";
 
-export const Event = forwardRef<View, any>(function Event({
-  className,
-  eventWithRoute: er,
-  isPressable = true,
-  showSubgroups = true,
-  showFullEventName = false,
-}: {
-  className?: string;
-  eventWithRoute: EventWithRoute;
-  isPressable?: boolean;
-  showSubgroups?: boolean;
-  showFullEventName?: boolean;
-}) {
+export const Event = forwardRef<View, any>(function Event(
+  {
+    className,
+    eventWithRoute: er,
+    isPressable = true,
+    showSubgroups = true,
+    showFullEventName = false,
+    ...props
+  }: {
+    className?: string;
+    eventWithRoute: EventWithRoute;
+    isPressable?: boolean;
+    showSubgroups?: boolean;
+    showFullEventName?: boolean;
+  },
+  ref,
+) {
   return (
-    // <View isPressable={isPressable} radius="none" shadow="none" fullWidth>
-    <View
+    <Pressable
+      ref={ref}
       className={cn(
         "flex flex-row gap-0 bg-background py-2 pl-2 pr-0.5",
         className,
       )}
+      {...props}
     >
       <View className="flex min-w-[52px] max-w-[52px]">
         <StartTime className="font-medium" date={new Date(er.eventStart)} />
@@ -52,7 +57,7 @@ export const Event = forwardRef<View, any>(function Event({
           <ChevronRightIcon className="text-lg color-primary" />
         </View>
       )}
-    </View>
+    </Pressable>
   );
 });
 

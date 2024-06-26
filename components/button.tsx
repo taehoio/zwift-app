@@ -18,12 +18,12 @@ export const Button = forwardRef<View, any>(function Button(
 ) {
   return (
     <Pressable
+      ref={ref}
       role="button"
       className={cn(
         "scale-100 rounded-md bg-primary p-4 opacity-100 transition hover:opacity-90 active:scale-[.98] active:opacity-90",
         className,
       )}
-      ref={ref}
       {...props}
     >
       <Text className="font-bold text-white">{children}</Text>
