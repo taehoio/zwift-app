@@ -1,15 +1,20 @@
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
+import { useColorScheme } from "nativewind";
 import { useEffect } from "react";
 import "react-native-reanimated";
 
-import "../global.css";
+import { colors } from "@/constants/Colors";
+import "@/global.css";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  const { colorScheme } = useColorScheme();
+  const isDark = colorScheme === "dark";
+
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
@@ -25,8 +30,22 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    <Stack
+      initialRouteName="index"
+      screenOptions={{
+        headerShown: true,
+        headerTitleStyle: {
+          fontSize: 20,
+          fontWeight: "bold",
+        },
+        headerStyle: {
+          backgroundColor: isDark
+            ? colors.dark.background
+            : colors.light.background,
+        },
+        headerTintColor: isDark ? colors.dark.primary : colors.light.primary,
+      }}
+    >
       <Stack.Screen name="+not-found" />
     </Stack>
   );

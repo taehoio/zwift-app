@@ -1,9 +1,23 @@
+import { useNavigation } from "expo-router";
+import { useLayoutEffect } from "react";
 import { Image, Platform, Text, View } from "react-native";
 
 import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 
-export default function HomeScreen() {
+export default function WelcomeScreen() {
+  const navigatior = useNavigation();
+
+  useLayoutEffect(() => {
+    navigatior.setOptions({
+      headerTitle: (props: any) => (
+        <Text className="text-2xl font-bold text-foreground" {...props}>
+          Welcome!
+        </Text>
+      ),
+    });
+  }, [navigatior]);
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
