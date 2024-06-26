@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { Pressable, Text, View } from "react-native";
+import { preview } from "react-native-ide";
 
 import { cn } from "@/styles";
 
@@ -28,3 +29,5 @@ export const Button = forwardRef<View, any>(function Button(
     </Pressable>
   );
 });
+
+preview(<Button>Hello World</Button>);
