@@ -20,7 +20,7 @@ export const Button = forwardRef<View, any>(function Button(
     <Pressable
       role="button"
       className={cn(
-        "ripple-secondary scale-100 rounded-md bg-primary p-4 opacity-100 transition hover:opacity-90 active:scale-[.98] active:opacity-90",
+        "scale-100 rounded-md bg-primary p-4 opacity-100 transition hover:opacity-90 active:scale-[.98] active:opacity-90",
         className,
       )}
       ref={ref}

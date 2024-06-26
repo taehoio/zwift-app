@@ -20,7 +20,7 @@ exports[`renders correctly 1`] = `
     }
   }
   accessible={true}
-  className="scale-100 rounded-md bg-primary p-4 opacity-100 transition hover:opacity-90 active:scale-90 active:opacity-90"
+  className="scale-100 rounded-md bg-primary p-4 opacity-100 transition hover:opacity-90 active:scale-[.98] active:opacity-90"
   collapsable={false}
   focusable={true}
   onBlur={[Function]}
