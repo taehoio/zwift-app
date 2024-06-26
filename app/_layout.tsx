@@ -39,7 +39,17 @@ export default function RootLayout() {
         <Stack
           initialRouteName="index"
           screenOptions={{
-            headerShown: false,
+            headerTitle: "Zwift Events",
+            headerStyle: {
+              backgroundColor: isDark
+                ? colors.dark.background
+                : colors.light.background,
+            },
+            headerTintColor: isDark
+              ? colors.dark.foreground
+              : colors.light.foreground,
+            headerBackTitleVisible: false,
+            headerLargeTitle: true,
             contentStyle: {
               backgroundColor: isDark
                 ? colors.dark.background
@@ -47,7 +57,7 @@ export default function RootLayout() {
             },
           }}
         >
-          <Stack.Screen name="welcome" />
+          <Stack.Screen name="welcome" options={{ headerTitle: "Welcome!" }} />
           <Stack.Screen name="+not-found" />
         </Stack>
       </SafeAreaProvider>
