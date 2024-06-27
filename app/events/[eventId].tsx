@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import {
   Dimensions,
   Image,
+  Pressable,
   RefreshControl,
   SafeAreaView,
   ScrollView,
@@ -130,11 +131,11 @@ const Subgroup = ({
   const category = labelToCategory(subgroup.label);
 
   return (
-    <View
+    <Pressable
       className={cn(
         "flex w-full flex-row gap-2 bg-background py-4 pl-4 pr-0.5 transition",
-        className,
         { "active:scale-[.98] active:opacity-95": isPressable },
+        className,
       )}
     >
       <View className="flex flex-grow flex-row gap-2">
@@ -149,7 +150,7 @@ const Subgroup = ({
       <View className="flex justify-center">
         <ChevronRightIcon className="text-lg color-primary" />
       </View>
-    </View>
+    </Pressable>
   );
 };
 

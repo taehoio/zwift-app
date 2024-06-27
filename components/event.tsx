@@ -37,8 +37,8 @@ export const Event = forwardRef<View, any>(function Event(
       ref={ref}
       className={cn(
         "flex flex-row gap-0 bg-background py-2 pl-2 pr-0.5 transition",
-        className,
         { "active:scale-[.98] active:opacity-95": isPressable },
+        className,
       )}
       {...props}
     >
