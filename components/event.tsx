@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { Pressable, View } from "react-native";
+import { Platform, Pressable, View } from "react-native";
 
 import { Text } from "@/components";
 import {
@@ -42,7 +42,7 @@ export const Event = forwardRef<View, any>(function Event(
       )}
       {...props}
     >
-      <View className="flex min-w-[52px] max-w-[52px]">
+      <View className={cn("flex", Platform.OS === "web" ? "w-14" : "w-[52px]")}>
         <StartTime date={new Date(er.eventStart)} />
       </View>
 
