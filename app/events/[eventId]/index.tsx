@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useLocalSearchParams } from "expo-router";
-import { useCallback, useState } from "react";
+import { forwardRef, useCallback, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -109,34 +109,41 @@ const SubgroupList = ({ event }: { event: EventType }) => (
       <Link
         key={subgroup.id}
         href={`/events/${event.id}/subgroups/${subgroup.id}`}
+        asChild
       >
         <Subgroup
-          subgroup={subgroup}
           className={cn({ "bg-default-200 dark:bg-default-100": isEven(i) })}
+          subgroup={subgroup}
         />
       </Link>
     ))}
   </View>
 );
 
-const Subgroup = ({
-  subgroup,
-  className,
-  isPressable = true,
-}: {
-  subgroup: EventSubgroup;
-  className?: string;
-  isPressable?: boolean;
-}) => {
+const Subgroup = forwardRef<View, any>(function Subgroup(
+  {
+    subgroup,
+    className,
+    isPressable = true,
+    ...props
+  }: {
+    subgroup: EventSubgroup;
+    className?: string;
+    isPressable?: boolean;
+  },
+  ref,
+) {
   const category = labelToCategory(subgroup.label);
 
   return (
     <Pressable
+      ref={ref}
       className={cn(
-        "flex w-full flex-row gap-2 bg-background py-4 pl-4 pr-0.5 transition",
+        "flex w-full flex-row gap-2 bg-background py-4 pl-4 pr-2 transition",
         { "active:scale-[.98] active:opacity-95": isPressable },
         className,
       )}
+      {...props}
     >
       <View className="flex flex-grow flex-row gap-2">
         <SubgroupBadge
@@ -152,6 +159,6 @@ const Subgroup = ({
       </View>
     </Pressable>
   );
-};
+});
 
 const isEven = (num: number) => num % 2 === 0;
