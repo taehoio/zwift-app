@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { cssInterop } from "nativewind";
 import { ScrollView, Text } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { getEvents } from "@/api/events";
 import { EventList } from "@/components/event-list";
@@ -12,8 +11,6 @@ const ScrollViewContainer = cssInterop(ScrollView, {
 });
 
 export default function HomeScreen() {
-  const insets = useSafeAreaInsets();
-
   const query = useQuery({
     queryKey: ["events"],
     queryFn: getEvents,
@@ -21,12 +18,7 @@ export default function HomeScreen() {
 
   return (
     <ScrollViewContainer
-      style={{
-        paddingTop: insets.top,
-        paddingBottom: insets.bottom,
-        paddingLeft: insets.left,
-        paddingRight: insets.right,
-      }}
+      contentInsetAdjustmentBehavior="automatic"
       contentContainerClassName={cn({
         "flex-1 items-center justify-center": query.isLoading,
       })}
