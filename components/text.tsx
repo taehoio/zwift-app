@@ -1,4 +1,5 @@
-import { Text as RNText, TextStyle } from "react-native";
+import { ReactNode } from "react";
+import { Text as RNText, TextProps, TextStyle } from "react-native";
 
 import { cn } from "@/styles";
 
@@ -8,10 +9,10 @@ export const Text = ({
   ...props
 }: {
   className?: string;
-  children?: string | number | null;
-  props?: any;
+  children?: ReactNode;
+  props?: TextProps;
 }) => {
-  const mergedClassName = cn("font-sans text-foreground", className);
+  const mergedClassName = cn("text-md font-sans text-foreground", className);
   const classValues = mergedClassName.split(" ");
 
   const style: TextStyle = {};

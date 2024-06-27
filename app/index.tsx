@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { cssInterop } from "nativewind";
-import { ScrollView, Text } from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
+import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 
 import { getEvents } from "@/api/events";
 import { EventList } from "@/components/event-list";
-import { cn } from "@/styles";
+import { Text } from "@/components/text";
 
 const ScrollViewContainer = cssInterop(ScrollView, {
   contentContainerClassName: "contentContainerStyle",
@@ -17,15 +18,26 @@ export default function HomeScreen() {
   });
 
   return (
-    <ScrollViewContainer
-      contentInsetAdjustmentBehavior="automatic"
-      contentContainerClassName={cn({
-        "flex-1 items-center justify-center": query.isLoading,
-      })}
-    >
-      {query.isLoading && <Text className="text-foreground">Loading...</Text>}
-      {query.isError && <Text className="text-foreground">Error</Text>}
-      {query.isSuccess && <EventList eventsWithRoute={query.data} />}
-    </ScrollViewContainer>
+    <>
+      {query.isLoading && (
+        <SafeAreaView className="flex-1 items-center justify-center">
+          <Text>Loading...</Text>
+        </SafeAreaView>
+      )}
+
+      {query.isError && (
+        <SafeAreaView className="flex-1 items-center justify-center">
+          <Text>Error: {JSON.stringify(query.error)}</Text>
+        </SafeAreaView>
+      )}
+
+      {query.isSuccess && (
+        <ScrollViewContainer contentInsetAdjustmentBehavior="automatic">
+          <Animated.View entering={FadeIn} exiting={FadeOut}>
+            <EventList eventsWithRoute={query.data} />
+          </Animated.View>
+        </ScrollViewContainer>
+      )}
+    </>
   );
 }
