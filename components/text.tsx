@@ -12,7 +12,7 @@ export const Text = ({
   children?: ReactNode;
   props?: TextProps;
 }) => {
-  const mergedClassName = cn("text-md font-sans text-foreground", className);
+  const mergedClassName = cn("font-sans text-md text-foreground", className);
   const classValues = mergedClassName.split(" ");
 
   const style: TextStyle = {};
