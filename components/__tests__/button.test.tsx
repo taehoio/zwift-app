@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react-native";
 import React from "react";
 
-import { Button } from "@/components/button";
+import { Button } from "@/components";
 
 it("renders correctly", async () => {
   render(<Button>It's me, Button!</Button>);
