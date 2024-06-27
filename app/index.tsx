@@ -1,15 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { cssInterop } from "nativewind";
-import { SafeAreaView, ScrollView } from "react-native";
+import { useCallback, useState } from "react";
+import { RefreshControl, SafeAreaView, ScrollView } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 
 import { getEvents } from "@/api/events";
 import { EventList } from "@/components/event-list";
 import { Text } from "@/components/text";
-
-const ScrollViewContainer = cssInterop(ScrollView, {
-  contentContainerClassName: "contentContainerStyle",
-});
+import { cn } from "@/styles";
 
 export default function HomeScreen() {
   const query = useQuery({
@@ -17,11 +14,21 @@ export default function HomeScreen() {
     queryFn: getEvents,
   });
 
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const onRefresh = useCallback(() => {
+    setIsRefreshing(true);
+
+    query.refetch().finally(() => {
+      setIsRefreshing(false);
+    });
+  }, [query]);
+
   return (
     <>
-      {query.isLoading && (
+      {query.isLoading && !isRefreshing && (
         <SafeAreaView className="flex-1 items-center justify-center">
-          <Text>Loading...</Text>
+          <Text className="text-default">Loading...</Text>
         </SafeAreaView>
       )}
 
@@ -32,11 +39,25 @@ export default function HomeScreen() {
       )}
 
       {query.isSuccess && (
-        <ScrollViewContainer contentInsetAdjustmentBehavior="automatic">
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          refreshControl={
+            <RefreshControl
+              className="color-default"
+              refreshing={isRefreshing}
+              onRefresh={onRefresh}
+            />
+          }
+        >
           <Animated.View entering={FadeIn} exiting={FadeOut}>
-            <EventList eventsWithRoute={query.data} />
+            <EventList
+              className={cn("opacity-100 transition duration-500", {
+                "opacity-50": isRefreshing,
+              })}
+              eventsWithRoute={query.data}
+            />
           </Animated.View>
-        </ScrollViewContainer>
+        </ScrollView>
       )}
     </>
   );
