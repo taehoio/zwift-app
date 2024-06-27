@@ -3,7 +3,7 @@
 exports[`renders correctly 1`] = `
 [
   <Text
-    className="font-sans text-foreground"
+    className="font-sans text-md text-foreground"
     style={
       {
         "fontFamily": "ZwiftSprint-Regular",
@@ -13,13 +13,13 @@ exports[`renders correctly 1`] = `
     Hello, World!
   </Text>,
   <Text
-    className="text-foreground font-regular"
+    className="text-md text-foreground font-regular"
     style={{}}
   >
     Hello, World!
   </Text>,
   <Text
-    className="font-sans text-foreground font-medium"
+    className="font-sans text-md text-foreground font-medium"
     style={
       {
         "fontFamily": "ZwiftSprint-Medium",
@@ -29,7 +29,7 @@ exports[`renders correctly 1`] = `
     Hello, World!
   </Text>,
   <Text
-    className="font-sans text-foreground font-bold"
+    className="font-sans text-md text-foreground font-bold"
     style={
       {
         "fontFamily": "ZwiftSprint-Bold",
@@ -39,7 +39,7 @@ exports[`renders correctly 1`] = `
     Hello, World!
   </Text>,
   <Text
-    className="font-sans text-foreground font-black"
+    className="font-sans text-md text-foreground font-black"
     style={
       {
         "fontFamily": "ZwiftSprint-Black",
@@ -49,13 +49,13 @@ exports[`renders correctly 1`] = `
     Hello, World!
   </Text>,
   <Text
-    className="text-foreground font-serif font-black"
+    className="text-md text-foreground font-serif font-black"
     style={{}}
   >
     Hello, World!
   </Text>,
   <Text
-    className="font-sans text-primary"
+    className="font-sans text-md text-primary"
     style={
       {
         "fontFamily": "ZwiftSprint-Regular",

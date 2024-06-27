@@ -1,9 +1,11 @@
+import { AntDesign, Feather, FontAwesome6 } from "@expo/vector-icons";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useColorScheme } from "nativewind";
 import { useEffect } from "react";
+import { Platform } from "react-native";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -25,6 +27,9 @@ export default function RootLayout() {
     "ZwiftSprint-Bold": require("@/assets/fonts/ZwiftSprint-Bold.otf"),
     "ZwiftSprint-Black": require("@/assets/fonts/ZwiftSprint-Black.otf"),
     "ZwiftFondo-Regular": require("@/assets/fonts/ZwiftFondo-Regular.otf"),
+    ...FontAwesome6.font,
+    ...Feather.font,
+    ...AntDesign.font,
   });
   if (error) {
     console.error(error);
@@ -50,19 +55,23 @@ export default function RootLayout() {
             headerTitleStyle: {
               fontFamily: "ZwiftSprint-Bold",
             },
-            headerStyle: {
-              backgroundColor: isDark
-                ? colors.dark.background
-                : colors.light.background,
-            },
+            // headerStyle: {
+            //   backgroundColor: isDark
+            //     ? colors.dark.background
+            //     : colors.light.background,
+            // },
             headerTintColor: isDark
               ? colors.dark.foreground
               : colors.light.foreground,
-            headerBackTitleVisible: false,
+            headerBackTitleStyle: {
+              fontSize: 0,
+            },
             headerLargeTitle: true,
             headerLargeTitleStyle: {
               fontFamily: "ZwiftSprint-Bold",
             },
+            headerTransparent: Platform.OS === "web" ? false : true,
+            headerBlurEffect: "regular",
             contentStyle: {
               backgroundColor: isDark
                 ? colors.dark.background

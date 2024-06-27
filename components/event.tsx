@@ -45,7 +45,7 @@ export const Event = forwardRef<View, any>(function Event(
         <StartTime date={new Date(er.eventStart)} />
       </View>
 
-      <View className="line-clamp-1 flex-1 flex-grow flex-col">
+      <View className="line-clamp-1 flex-1 flex-grow flex-col gap-1">
         <EventName eventWithRoute={er} showFullEventName={showFullEventName} />
         <RouteInfo eventWithRoute={er} />
         {showSubgroups && (
@@ -87,7 +87,7 @@ const EventName = ({
       )}
     </View>
     <Text
-      className={cn("flex-1 font-bold leading-tight text-secondary", {
+      className={cn("flex-1 font-medium leading-tight text-secondary", {
         "line-clamp-1": !showFullEventName,
       })}
     >

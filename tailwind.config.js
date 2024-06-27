@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         sans: ["ZwiftSprint-Regular", "Helvetica", "Arial", "sans-serif"],
       },
+      fontSize: {
+        md: "1.125rem",
+      },
       colors: {
         default: {
           DEFAULT: "rgb(var(--color-default) / <alpha-value>)",

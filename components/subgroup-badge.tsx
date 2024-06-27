@@ -37,12 +37,12 @@ export const SubgroupBadge = ({
 }) => (
   <View
     className={cn(
-      "flex h-5 min-w-5 items-center justify-center rounded-full",
+      "flex h-6 min-w-6 items-center justify-center rounded-full",
       colorByCategory(category),
       className,
     )}
   >
-    <Text className="text-xs font-medium text-white">{text}</Text>
+    <Text className="text-sm font-medium text-white">{text}</Text>
   </View>
 );
 
