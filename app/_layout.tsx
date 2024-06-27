@@ -51,7 +51,6 @@ export default function RootLayout() {
         <Stack
           initialRouteName="index"
           screenOptions={{
-            headerTitle: "Zwift Events",
             headerTitleStyle: {
               fontFamily: "ZwiftSprint-Bold",
             },
@@ -82,6 +81,15 @@ export default function RootLayout() {
             },
           }}
         >
+          <Stack.Screen
+            name="index"
+            options={{ headerTitle: "Zwift Events" }}
+          />
+          <Stack.Screen
+            name="events/[eventId]"
+            options={{ headerTitle: "Event" }}
+          />
+
           <Stack.Screen name="welcome" options={{ headerTitle: "Welcome!" }} />
           <Stack.Screen name="+not-found" />
         </Stack>
