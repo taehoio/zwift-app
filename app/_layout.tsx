@@ -86,8 +86,12 @@ export default function RootLayout() {
             options={{ headerTitle: "Zwift Events" }}
           />
           <Stack.Screen
-            name="events/[eventId]"
+            name="events/[eventId]/index"
             options={{ headerTitle: "Event" }}
+          />
+          <Stack.Screen
+            name="events/[eventId]/subgroups/[subgroupId]/index"
+            options={{ headerTitle: "Subgroup" }}
           />
 
           <Stack.Screen name="welcome" options={{ headerTitle: "Welcome!" }} />
