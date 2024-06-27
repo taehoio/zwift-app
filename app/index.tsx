@@ -3,15 +3,16 @@ import { useCallback, useState } from "react";
 import { RefreshControl, SafeAreaView, ScrollView } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 
-import { getEvents } from "@/api/events";
+import { fetchEvents } from "@/api/events";
+import { Text } from "@/components";
 import { EventList } from "@/components/event-list";
-import { Text } from "@/components/text";
+import { Loading } from "@/components/loading";
 import { cn } from "@/styles";
 
 export default function HomeScreen() {
   const query = useQuery({
     queryKey: ["events"],
-    queryFn: getEvents,
+    queryFn: fetchEvents,
   });
 
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -28,7 +29,7 @@ export default function HomeScreen() {
     <>
       {query.isLoading && !isRefreshing && (
         <SafeAreaView className="flex-1 items-center justify-center">
-          <Text className="text-default">Loading...</Text>
+          <Loading />
         </SafeAreaView>
       )}
 

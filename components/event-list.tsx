@@ -15,8 +15,11 @@ export const EventList = ({
   return (
     <View className={cn("flex flex-col", className)}>
       {events.map((eventWithRoute, i) => (
-        // <Link key={eventWithRoute.id} href={`/events/${eventWithRoute.id}`} asChild>
-        <Link key={eventWithRoute.id} href="/welcome" asChild>
+        <Link
+          key={eventWithRoute.id}
+          href={`/events/${eventWithRoute.id}`}
+          asChild
+        >
           <Event
             className={cn({ "bg-default-200 dark:bg-default-100": isEven(i) })}
             eventWithRoute={eventWithRoute}
