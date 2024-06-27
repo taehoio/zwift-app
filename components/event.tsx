@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 
+import { Text } from "@/components";
 import {
   ChevronRightIcon,
   ClockIcon,
@@ -41,7 +42,7 @@ export const Event = forwardRef<View, any>(function Event(
       {...props}
     >
       <View className="flex min-w-[52px] max-w-[52px]">
-        <StartTime className="font-medium" date={new Date(er.eventStart)} />
+        <StartTime date={new Date(er.eventStart)} />
       </View>
 
       <View className="line-clamp-1 flex-1 flex-grow flex-col">
@@ -86,7 +87,7 @@ const EventName = ({
       )}
     </View>
     <Text
-      className={cn("flex-1 leading-tight text-secondary", {
+      className={cn("flex-1 font-bold leading-tight text-secondary", {
         "line-clamp-1": !showFullEventName,
       })}
     >
@@ -109,26 +110,24 @@ const RouteInfo = ({
           <RepeatIcon className="w-3 color-primary" />
         </View>
         <View className="flex flex-row items-center gap-0.5">
-          <Text className="text-foreground">{er.laps}</Text>
-          <Text className="text-xs text-foreground">laps</Text>
+          <Text>{er.laps}</Text>
+          <Text className="text-xs">laps</Text>
         </View>
 
         {er.route && (
           <>
             <View className="flex flex-row items-center">
-              <Text className="text-foreground">
+              <Text>
                 {(er.route.lead_in_km + er.route.distance_km * er.laps).toFixed(
                   1,
                 )}
               </Text>
-              <Text className="text-xs text-foreground">km</Text>
+              <Text className="text-xs">km</Text>
             </View>
 
             <View className="flex flex-row items-center">
-              <Text className="text-foreground">
-                {(er.route.elevation_m * er.laps).toFixed(0)}
-              </Text>
-              <Text className="text-xs text-foreground">m</Text>
+              <Text>{(er.route.elevation_m * er.laps).toFixed(0)}</Text>
+              <Text className="text-xs">m</Text>
             </View>
           </>
         )}
@@ -141,10 +140,8 @@ const RouteInfo = ({
           <View className="flex min-w-3.5 max-w-3.5 items-center justify-center">
             <ClockIcon className="w-3.5 color-primary" />
           </View>
-          <Text className="pl-0.5 text-foreground">
-            {er.durationInSeconds / 60}
-          </Text>
-          <Text className="text-xs text-foreground">mins</Text>
+          <Text className="pl-0.5">{er.durationInSeconds / 60}</Text>
+          <Text className="text-xs">mins</Text>
         </View>
       </View>
     )}
@@ -152,16 +149,12 @@ const RouteInfo = ({
     {er.distanceInMeters > 0 && (
       <View className="flex gap-1">
         <View className="flex flex-row items-center">
-          <Text className="text-foreground">
-            {(er.distanceInMeters / 1000).toFixed(1)}
-          </Text>
-          <Text className="text-xs text-foreground">km</Text>
+          <Text>{(er.distanceInMeters / 1000).toFixed(1)}</Text>
+          <Text className="text-xs">km</Text>
         </View>
       </View>
     )}
 
-    <Text className="line-clamp-1 flex-grow text-foreground">
-      {er.route?.name}
-    </Text>
+    <Text className="line-clamp-1 flex-grow">{er.route?.name}</Text>
   </View>
 );

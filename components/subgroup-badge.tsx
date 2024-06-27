@@ -1,5 +1,6 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
+import { Text } from "@/components";
 import { labelToCategory } from "@/libs/zwiftpower";
 import { cn } from "@/styles";
 import { Category, EventSubgroup } from "@/types/zwift.type";
@@ -41,7 +42,7 @@ export const SubgroupBadge = ({
       className,
     )}
   >
-    <Text className="text-xs text-white">{text}</Text>
+    <Text className="text-xs font-medium text-white">{text}</Text>
   </View>
 );
 

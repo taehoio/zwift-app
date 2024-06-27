@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+[
+  <Text
+    className="font-sans text-foreground"
+    style={
+      {
+        "fontFamily": "ZwiftSprint-Regular",
+      }
+    }
+  >
+    Hello, World!
+  </Text>,
+  <Text
+    className="text-foreground font-regular"
+    style={{}}
+  >
+    Hello, World!
+  </Text>,
+  <Text
+    className="font-sans text-foreground font-medium"
+    style={
+      {
+        "fontFamily": "ZwiftSprint-Medium",
+      }
+    }
+  >
+    Hello, World!
+  </Text>,
+  <Text
+    className="font-sans text-foreground font-bold"
+    style={
+      {
+        "fontFamily": "ZwiftSprint-Bold",
+      }
+    }
+  >
+    Hello, World!
+  </Text>,
+  <Text
+    className="font-sans text-foreground font-black"
+    style={
+      {
+        "fontFamily": "ZwiftSprint-Black",
+      }
+    }
+  >
+    Hello, World!
+  </Text>,
+  <Text
+    className="text-foreground font-serif font-black"
+    style={{}}
+  >
+    Hello, World!
+  </Text>,
+  <Text
+    className="font-sans text-primary"
+    style={
+      {
+        "fontFamily": "ZwiftSprint-Regular",
+      }
+    }
+  >
+    Hello, World!
+  </Text>,
+]
+`;

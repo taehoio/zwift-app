@@ -5,6 +5,9 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["ZwiftSprint-Regular", "Helvetica", "Arial", "sans-serif"],
+      },
       colors: {
         default: {
           DEFAULT: "rgb(var(--color-default) / <alpha-value>)",
