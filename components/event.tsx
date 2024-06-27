@@ -74,16 +74,16 @@ const EventName = ({
   <View className={cn("flex-1 flex-grow flex-row gap-1", className)}>
     <View className="flex min-w-3.5 max-w-3.5 items-center justify-center">
       {er.eventType === "RACE" && (
-        <FlagIcon className="text-md color-default" />
+        <FlagIcon className="text-sm color-default" />
       )}
       {er.eventType === "GROUP_RIDE" && (
-        <UsersIcon className="text-md color-default" />
+        <UsersIcon className="text-sm color-default" />
       )}
       {er.eventType === "GROUP_WORKOUT" && (
         <DumbbellIcon className="text-xs color-default" />
       )}
       {er.eventType === "TIME_TRIAL" && (
-        <ClockIcon className="text-md color-default" />
+        <ClockIcon className="text-sm color-default" />
       )}
     </View>
     <Text

@@ -55,11 +55,6 @@ export default function RootLayout() {
             headerTitleStyle: {
               fontFamily: "ZwiftSprint-Bold",
             },
-            // headerStyle: {
-            //   backgroundColor: isDark
-            //     ? colors.dark.background
-            //     : colors.light.background,
-            // },
             headerTintColor: isDark
               ? colors.dark.foreground
               : colors.light.foreground,
@@ -70,8 +65,16 @@ export default function RootLayout() {
             headerLargeTitleStyle: {
               fontFamily: "ZwiftSprint-Bold",
             },
-            headerTransparent: Platform.OS === "web" ? false : true,
+            headerTransparent: Platform.OS === "ios" ? true : false,
             headerBlurEffect: "regular",
+            headerStyle: {
+              backgroundColor:
+                Platform.OS === "ios"
+                  ? "transparent"
+                  : isDark
+                    ? colors.dark.background
+                    : colors.light.background,
+            },
             contentStyle: {
               backgroundColor: isDark
                 ? colors.dark.background
