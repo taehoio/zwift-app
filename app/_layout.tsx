@@ -19,9 +19,16 @@ export default function RootLayout() {
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
 
-  const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+  const [loaded, error] = useFonts({
+    "ZwiftSprint-Regular": require("@/assets/fonts/ZwiftSprint-Regular.otf"),
+    "ZwiftSprint-Medium": require("@/assets/fonts/ZwiftSprint-Medium.otf"),
+    "ZwiftSprint-Bold": require("@/assets/fonts/ZwiftSprint-Bold.otf"),
+    "ZwiftSprint-Black": require("@/assets/fonts/ZwiftSprint-Black.otf"),
+    "ZwiftFondo-Regular": require("@/assets/fonts/ZwiftFondo-Regular.otf"),
   });
+  if (error) {
+    console.error(error);
+  }
 
   useEffect(() => {
     if (loaded) {
@@ -40,6 +47,9 @@ export default function RootLayout() {
           initialRouteName="index"
           screenOptions={{
             headerTitle: "Zwift Events",
+            headerTitleStyle: {
+              fontFamily: "ZwiftSprint-Bold",
+            },
             headerStyle: {
               backgroundColor: isDark
                 ? colors.dark.background
@@ -50,6 +60,9 @@ export default function RootLayout() {
               : colors.light.foreground,
             headerBackTitleVisible: false,
             headerLargeTitle: true,
+            headerLargeTitleStyle: {
+              fontFamily: "ZwiftSprint-Bold",
+            },
             contentStyle: {
               backgroundColor: isDark
                 ? colors.dark.background
