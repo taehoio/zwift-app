@@ -9,7 +9,7 @@ import { Platform } from "react-native";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { colors } from "@/constants/Colors";
+import { colors } from "@/constants/colors";
 import "@/global.css";
 
 const queryClient = new QueryClient();
