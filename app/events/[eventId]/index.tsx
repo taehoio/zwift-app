@@ -10,12 +10,12 @@ import {
   ScrollView,
   View,
 } from "react-native";
-import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 
 import { fetchEvent } from "@/api/events";
 import { Text } from "@/components";
 import { Event } from "@/components/event";
 import { ExternalLink } from "@/components/external-link";
+import { FadeInView } from "@/components/fade-in-view";
 import { ChevronRightIcon } from "@/components/icons";
 import { LoadingIndicator } from "@/components/loading-indicator";
 import { SubgroupBadge } from "@/components/subgroup-badge";
@@ -67,7 +67,7 @@ export default function EventScreen() {
             />
           }
         >
-          <Animated.View entering={FadeIn} exiting={FadeOut}>
+          <FadeInView>
             <View
               className={cn("opacity-100 transition duration-500", {
                 "opacity-50": isRefreshing,
@@ -96,7 +96,7 @@ export default function EventScreen() {
 
               <SubgroupList event={query.data} />
             </View>
-          </Animated.View>
+          </FadeInView>
         </ScrollView>
       )}
     </>
