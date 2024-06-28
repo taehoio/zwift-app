@@ -3,17 +3,15 @@ import {
   WebBrowserPresentationStyle,
   openBrowserAsync,
 } from "expo-web-browser";
-import { useColorScheme } from "nativewind";
 import { type ComponentProps } from "react";
 import { Platform } from "react-native";
 
-import { colors } from "@/constants/colors";
+import { useColor } from "@/hooks/useColorScheme";
 
 type Props = Omit<ComponentProps<typeof Link>, "href"> & { href: string };
 
 export function ExternalLink({ href, ...rest }: Props) {
-  const { colorScheme } = useColorScheme();
-  const isDark = colorScheme === "dark";
+  const backgroundColor = useColor("background");
 
   return (
     <Link
@@ -26,9 +24,7 @@ export function ExternalLink({ href, ...rest }: Props) {
           event.preventDefault();
           // Open the link in an in-app browser.
           await openBrowserAsync(href, {
-            toolbarColor: isDark
-              ? colors.dark.background
-              : colors.light.background,
+            toolbarColor: backgroundColor,
             presentationStyle: WebBrowserPresentationStyle.FULL_SCREEN,
           });
         }
