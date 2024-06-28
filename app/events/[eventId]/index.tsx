@@ -14,8 +14,8 @@ import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 
 import { fetchEvent } from "@/api/events";
 import { Text } from "@/components";
-import { ExternalLink } from "@/components/ExternalLink";
 import { Event } from "@/components/event";
+import { ExternalLink } from "@/components/external-link";
 import { ChevronRightIcon } from "@/components/icons";
 import { Loading } from "@/components/loading";
 import { SubgroupBadge } from "@/components/subgroup-badge";
