@@ -52,12 +52,14 @@ export const colors = {
   light: {
     background: commonColors.background,
     foreground: commonColors.foreground,
+    default: commonColors.bunker[500],
     primary: commonColors.orange[500],
     secondary: commonColors.curiousblue[500],
   },
   dark: {
     background: commonColors.foreground,
     foreground: commonColors.background,
+    default: commonColors.bunker[500],
     primary: commonColors.orange[500],
     secondary: commonColors.curiousblue[500],
   },

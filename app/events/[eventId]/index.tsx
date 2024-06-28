@@ -17,7 +17,7 @@ import { Text } from "@/components";
 import { Event } from "@/components/event";
 import { ExternalLink } from "@/components/external-link";
 import { ChevronRightIcon } from "@/components/icons";
-import { Loading } from "@/components/loading";
+import { LoadingIndicator } from "@/components/loading-indicator";
 import { SubgroupBadge } from "@/components/subgroup-badge";
 import { labelToCategory } from "@/libs/zwiftpower";
 import { cn } from "@/styles";
@@ -46,7 +46,7 @@ export default function EventScreen() {
     <>
       {query.isLoading && !isRefreshing && (
         <SafeAreaView className="flex-1 items-center justify-center">
-          <Loading />
+          <LoadingIndicator />
         </SafeAreaView>
       )}
 
