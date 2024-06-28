@@ -6,7 +6,7 @@ import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import { fetchEvents } from "@/api/events";
 import { Text } from "@/components";
 import { EventList } from "@/components/event-list";
-import { Loading } from "@/components/loading";
+import { LoadingIndicator } from "@/components/loading-indicator";
 import { cn } from "@/styles";
 
 export default function HomeScreen() {
@@ -29,7 +29,7 @@ export default function HomeScreen() {
     <>
       {query.isLoading && !isRefreshing && (
         <SafeAreaView className="flex-1 items-center justify-center">
-          <Loading />
+          <LoadingIndicator />
         </SafeAreaView>
       )}
 
