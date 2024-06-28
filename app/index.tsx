@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useCallback, useState } from "react";
 import { RefreshControl, SafeAreaView, ScrollView } from "react-native";
-import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 
 import { fetchEvents } from "@/api/events";
 import { Text } from "@/components";
 import { EventList } from "@/components/event-list";
+import { FadeInView } from "@/components/fade-in-view";
 import { LoadingIndicator } from "@/components/loading-indicator";
 import { cn } from "@/styles";
 
@@ -50,14 +50,14 @@ export default function HomeScreen() {
             />
           }
         >
-          <Animated.View entering={FadeIn} exiting={FadeOut}>
+          <FadeInView>
             <EventList
               className={cn("opacity-100 transition duration-500", {
                 "opacity-50": isRefreshing,
               })}
               eventsWithRoute={query.data}
             />
-          </Animated.View>
+          </FadeInView>
         </ScrollView>
       )}
     </>
