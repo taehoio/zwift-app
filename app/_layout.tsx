@@ -8,8 +8,8 @@ import { Platform } from "react-native";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import "@/global.css";
 import { useColor } from "@/hooks/useColorScheme";
+import "@/styles/global.css";
 
 const queryClient = new QueryClient();
 

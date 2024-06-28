@@ -1,6 +1,6 @@
 import { useColorScheme } from "nativewind";
 
-import { colors } from "@/constants/colors";
+import { colors } from "@/styles/colors";
 
 export { useColorScheme } from "nativewind";
 
