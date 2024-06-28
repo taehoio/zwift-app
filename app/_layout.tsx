@@ -3,14 +3,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useColorScheme } from "nativewind";
 import { useEffect } from "react";
 import { Platform } from "react-native";
 import "react-native-reanimated";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { colors } from "@/constants/colors";
 import "@/global.css";
+import { useColor } from "@/hooks/useColorScheme";
 
 const queryClient = new QueryClient();
 
@@ -18,8 +17,8 @@ const queryClient = new QueryClient();
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const { colorScheme } = useColorScheme();
-  const isDark = colorScheme === "dark";
+  const foregroundColor = useColor("foreground");
+  const backgroundColor = useColor("background");
 
   const [loaded, error] = useFonts({
     "ZwiftSprint-Regular": require("@/assets/fonts/ZwiftSprint-Regular.otf"),
@@ -54,9 +53,7 @@ export default function RootLayout() {
             headerTitleStyle: {
               fontFamily: "ZwiftSprint-Bold",
             },
-            headerTintColor: isDark
-              ? colors.dark.foreground
-              : colors.light.foreground,
+            headerTintColor: foregroundColor,
             headerBackTitleStyle: {
               fontSize: 0,
             },
@@ -68,16 +65,10 @@ export default function RootLayout() {
             headerBlurEffect: "regular",
             headerStyle: {
               backgroundColor:
-                Platform.OS === "ios"
-                  ? "transparent"
-                  : isDark
-                    ? colors.dark.background
-                    : colors.light.background,
+                Platform.OS === "ios" ? "transparent" : backgroundColor,
             },
             contentStyle: {
-              backgroundColor: isDark
-                ? colors.dark.background
-                : colors.light.background,
+              backgroundColor: backgroundColor,
             },
           }}
         >
