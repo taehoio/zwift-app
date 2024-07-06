@@ -105,6 +105,9 @@ export type Database = {
         Row: {
           age: number | null
           category: string | null
+          category_women: string | null
+          competition_metrics: Json | null
+          competition_metrics_updated_at: string | null
           country_alpha3: string | null
           first_name: string | null
           ftp: number | null
@@ -113,6 +116,7 @@ export type Database = {
           last_name: string | null
           male: boolean | null
           name: string | null
+          racing_score: number | null
           rank: number | null
           updated_at: string
           watts_in_1200s: number | null
@@ -128,6 +132,7 @@ export type Database = {
           zwift_id: number
           zwift_updated_at: string | null
           zwift_user: Json | null
+          zwift_user_status: string | null
           zwiftpower_api_user: Json | null
           zwiftpower_api_user_updated_at: string | null
           zwiftpower_page_user: Json | null
@@ -136,6 +141,9 @@ export type Database = {
         Insert: {
           age?: number | null
           category?: string | null
+          category_women?: string | null
+          competition_metrics?: Json | null
+          competition_metrics_updated_at?: string | null
           country_alpha3?: string | null
           first_name?: string | null
           ftp?: number | null
@@ -144,6 +152,7 @@ export type Database = {
           last_name?: string | null
           male?: boolean | null
           name?: string | null
+          racing_score?: number | null
           rank?: number | null
           updated_at?: string
           watts_in_1200s?: number | null
@@ -159,6 +168,7 @@ export type Database = {
           zwift_id: number
           zwift_updated_at?: string | null
           zwift_user?: Json | null
+          zwift_user_status?: string | null
           zwiftpower_api_user?: Json | null
           zwiftpower_api_user_updated_at?: string | null
           zwiftpower_page_user?: Json | null
@@ -167,6 +177,9 @@ export type Database = {
         Update: {
           age?: number | null
           category?: string | null
+          category_women?: string | null
+          competition_metrics?: Json | null
+          competition_metrics_updated_at?: string | null
           country_alpha3?: string | null
           first_name?: string | null
           ftp?: number | null
@@ -175,6 +188,7 @@ export type Database = {
           last_name?: string | null
           male?: boolean | null
           name?: string | null
+          racing_score?: number | null
           rank?: number | null
           updated_at?: string
           watts_in_1200s?: number | null
@@ -190,6 +204,7 @@ export type Database = {
           zwift_id?: number
           zwift_updated_at?: string | null
           zwift_user?: Json | null
+          zwift_user_status?: string | null
           zwiftpower_api_user?: Json | null
           zwiftpower_api_user_updated_at?: string | null
           zwiftpower_page_user?: Json | null
