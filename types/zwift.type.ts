@@ -1,5 +1,3 @@
-import { Tables } from "@/types/supabase.database.type";
-
 export interface EventSubgroup {
   id: number;
   name: string;
@@ -48,6 +46,7 @@ export interface EventSubgroup {
   accessValidationResult: AccessValidationResult | null;
   accessRules: AccessRule[];
   rangeAccessLabel: string | null;
+  category: Category | null;
 }
 
 interface EventSeries {
@@ -58,23 +57,23 @@ interface EventSeries {
 }
 
 interface TimeTrialOptions {
-  option1: string; // 실제 구조에 맞게 수정 필요
-  option2: number; // 실제 구조에 맞게 수정 필요
+  option1: string;
+  option2: number;
 }
 
 interface AccessValidationResult {
-  result: boolean; // 실제 구조에 맞게 수정 필요
-  message: string; // 실제 구조에 맞게 수정 필요
+  result: boolean;
+  message: string;
 }
 
 interface AccessRule {
-  ruleName: string; // 실제 구조에 맞게 수정 필요
-  ruleValue: string; // 실제 구조에 맞게 수정 필요
+  ruleName: string;
+  ruleValue: string;
 }
 
 interface RecurringOffset {
-  offsetType: string; // 실제 구조에 맞게 수정 필요
-  offsetValue: number; // 실제 구조에 맞게 수정 필요
+  offsetType: string;
+  offsetValue: number;
 }
 
 export interface Event {
@@ -137,10 +136,22 @@ export interface Event {
   categoryEnforcement: boolean;
   rangeAccessLabel: string | null;
   eventType: string;
+  eventStartTimeLocal: string | null;
 }
 
+type Route = {
+  zwiftRouteId: number;
+  name: string;
+  leadInKm: number;
+  distanceKm: number;
+  elevationM: number;
+  profile: string | null;
+  world: string | null;
+  zwiftinsiderUrl: string | null;
+};
+
 export type EventWithRoute = Event & {
-  route: Tables<"zwift_routes"> | null;
+  route: Route | null;
 };
 
 interface Privacy {
@@ -172,6 +183,12 @@ interface ProfilePropertyChange {
   propertyName: string;
   changeCount: number;
   maxChanges: number;
+}
+
+interface CompetitionMetrics {
+  racingScore: number | null;
+  category: Category;
+  categoryWomen: Category;
 }
 
 export interface UserProfile {
@@ -265,7 +282,7 @@ export interface UserProfile {
   streaksCurrentLength: number;
   streaksMaxLength: number;
   streaksLastRideTimestamp: string;
-  competitionMetrics: string | null;
+  competitionMetrics: CompetitionMetrics | null;
 }
 
-export type Category = "A" | "B" | "C" | "D" | "E" | "unknown" | null;
+export type Category = "A" | "B" | "C" | "D" | "E" | "unknown";

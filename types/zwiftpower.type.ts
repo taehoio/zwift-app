@@ -1,4 +1,4 @@
-export type Rider = {
+export type ZwiftpowerRider = {
   name: string;
   friend: number;
   ftp: string;

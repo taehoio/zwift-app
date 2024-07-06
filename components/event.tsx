@@ -119,15 +119,13 @@ const RouteInfo = ({
           <>
             <View className="flex flex-row items-center">
               <Text>
-                {(er.route.lead_in_km + er.route.distance_km * er.laps).toFixed(
-                  1,
-                )}
+                {(er.route.leadInKm + er.route.distanceKm * er.laps).toFixed(1)}
               </Text>
               <Text className="text-xs">km</Text>
             </View>
 
             <View className="flex flex-row items-center">
-              <Text>{(er.route.elevation_m * er.laps).toFixed(0)}</Text>
+              <Text>{(er.route.elevationM * er.laps).toFixed(0)}</Text>
               <Text className="text-xs">m</Text>
             </View>
           </>

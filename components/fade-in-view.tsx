@@ -1,6 +1,9 @@
 import { ReactNode } from "react";
 import { Platform } from "react-native";
+import { preview } from "react-native-ide";
 import Animated, { FadeIn as AnimatedFadeIn } from "react-native-reanimated";
+
+import { Text } from "@/components";
 
 export const FadeInView = ({
   children,
@@ -19,3 +22,9 @@ export const FadeInView = ({
     </Animated.View>
   );
 };
+
+preview(
+  <FadeInView>
+    <Text>FadeInView</Text>
+  </FadeInView>,
+);
