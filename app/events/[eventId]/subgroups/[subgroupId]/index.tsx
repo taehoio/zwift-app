@@ -1,6 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
 import { useLocalSearchParams } from "expo-router";
 import { ScrollView } from "react-native";
-import { useQuery } from "@tanstack/react-query";
+
 import { fetchEventSubgroup } from "@/api/events";
 import { Text } from "@/components";
 
