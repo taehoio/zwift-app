@@ -1,6 +1,7 @@
 import { QueryKey } from "@tanstack/react-query";
 import axios from "axios";
 
+import { Tables } from "@/types/supabase.database.type";
 import { EventSubgroup, EventWithRoute } from "@/types/zwift.type";
 
 const apiV1baseUrl = "https://zwift.taeho.io/api/v1";
@@ -24,7 +25,11 @@ export const fetchEventSubgroup = async ({
   queryKey,
 }: {
   queryKey: QueryKey;
-}): Promise<EventSubgroup> => {
+}): Promise<{
+  users: Tables<"zwift_users">[];
+  eventWithRoute: EventWithRoute;
+  subgroup: EventSubgroup;
+}> => {
   const eventId = queryKey[1];
   const subgroupId = queryKey[2];
   const result = await axios.get(

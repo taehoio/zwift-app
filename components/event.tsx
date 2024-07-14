@@ -18,7 +18,7 @@ import { EventWithRoute } from "@/types/zwift.type";
 export const Event = forwardRef<View, any>(function Event(
   {
     className,
-    eventWithRoute: er,
+    eventWithRoute,
     isPressable = true,
     showSubgroups = true,
     showFullEventName = false,
@@ -43,14 +43,20 @@ export const Event = forwardRef<View, any>(function Event(
       {...props}
     >
       <View className={cn("flex", Platform.OS === "web" ? "w-14" : "w-[52px]")}>
-        <StartTime date={new Date(er.eventStart)} />
+        <StartTime date={new Date(eventWithRoute.eventStart)} />
       </View>
 
       <View className="flex-1 flex-grow flex-col gap-1">
-        <EventName eventWithRoute={er} showFullEventName={showFullEventName} />
-        <RouteInfo eventWithRoute={er} />
+        <EventName
+          eventWithRoute={eventWithRoute}
+          showFullEventName={showFullEventName}
+        />
+        <RouteInfo eventWithRoute={eventWithRoute} />
         {showSubgroups && (
-          <SubgroupBadges eventId={er.id} subgroups={er.eventSubgroups} />
+          <SubgroupBadges
+            eventId={eventWithRoute.id}
+            subgroups={eventWithRoute.eventSubgroups}
+          />
         )}
       </View>
 
