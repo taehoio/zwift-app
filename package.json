@@ -10,6 +10,7 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "test:ci": "jest",
+    "test:coverage": "jest --coverage",
     "lint": "prettier . --check && expo lint",
     "format": "prettier . --write"
   },
