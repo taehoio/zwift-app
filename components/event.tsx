@@ -34,6 +34,7 @@ export const Event = forwardRef<View, any>(function Event(
 ) {
   return (
     <Pressable
+      testID="Event"
       ref={ref}
       className={cn(
         "flex flex-row gap-0 bg-background p-2 transition",
