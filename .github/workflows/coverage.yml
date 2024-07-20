@@ -22,14 +22,16 @@ jobs:
           node-version-file: ".tool-versions"
           cache: "npm"
 
-      - name: Install dependencies
-        run: |
-          npm ci
+      # - name: Install dependencies
+      #   run: |
+      #     npm ci
 
-      - name: Test
-        run: |
-          npm run test:coverage
+      # - name: Test
+      #   run: |
+      #     npm run test:coverage
 
-      - name: "Report Coverage"
-        if: always()
-        uses: davelosert/vitest-coverage-report-action@v2
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+
+      # - name: "Report Coverage"
+      #   if: always()
+      #   uses: ArtiomTr/jest-coverage-report-action@v2
