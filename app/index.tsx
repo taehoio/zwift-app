@@ -41,6 +41,7 @@ export default function HomeScreen() {
 
       {query.isSuccess && (
         <ScrollView
+          testID="ScrollView"
           contentInsetAdjustmentBehavior="automatic"
           refreshControl={
             <RefreshControl
