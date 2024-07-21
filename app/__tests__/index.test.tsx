@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { act, render, screen, waitFor } from "@testing-library/react-native";
+import { render, screen, waitFor } from "@testing-library/react-native";
 import React from "react";
 
 import HomeScreen from "@/app/index";
