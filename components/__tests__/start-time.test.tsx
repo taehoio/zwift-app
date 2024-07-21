@@ -1,4 +1,4 @@
-import { act, render, screen } from "@testing-library/react-native";
+import { render, screen } from "@testing-library/react-native";
 import dayjs from "dayjs";
 
 import { StartTime } from "@/components/start-time";
