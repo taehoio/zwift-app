@@ -1,7 +1,7 @@
 import { Category } from "@/types/zwift.type";
 
 export function labelToCategory(label: number): Category {
-  let category: Category = null;
+  let category: Category;
 
   switch (label) {
     case 1:

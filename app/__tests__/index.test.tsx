@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { render, screen, waitFor } from "@testing-library/react-native";
+import { act, render, screen, waitFor } from "@testing-library/react-native";
 import React from "react";
 
 import HomeScreen from "@/app/index";
@@ -67,9 +67,10 @@ describe("HomeScreen", () => {
 
     render(<HomeScreen />);
 
-    const { refreshControl } = screen.getByTestId("ScrollView").props;
-    refreshControl.props.onRefresh();
-
-    await waitFor(() => expect(refetch).toHaveBeenCalled());
+    await waitFor(() => {
+      const { refreshControl } = screen.getByTestId("ScrollView").props;
+      refreshControl.props.onRefresh();
+      expect(refetch).toHaveBeenCalled();
+    });
   });
 });

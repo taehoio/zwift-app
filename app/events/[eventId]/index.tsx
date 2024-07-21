@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useLocalSearchParams } from "expo-router";
-import { forwardRef, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import {
   Dimensions,
   Image,
-  Pressable,
   RefreshControl,
   SafeAreaView,
   ScrollView,
@@ -16,12 +15,10 @@ import { Text } from "@/components";
 import { Event } from "@/components/event";
 import { ExternalLink } from "@/components/external-link";
 import { FadeInView } from "@/components/fade-in-view";
-import { ChevronRightIcon } from "@/components/icons";
 import { LoadingIndicator } from "@/components/loading-indicator";
-import { SubgroupBadge } from "@/components/subgroup-badge";
-import { labelToCategory } from "@/libs/zwiftpower";
+import { Subgroup } from "@/components/subgroup";
 import { cn } from "@/styles";
-import { EventSubgroup, Event as EventType } from "@/types/zwift.type";
+import { Event as EventType } from "@/types/zwift.type";
 
 export default function EventScreen() {
   const { eventId } = useLocalSearchParams();
@@ -119,46 +116,5 @@ const SubgroupList = ({ event }: { event: EventType }) => (
     ))}
   </View>
 );
-
-const Subgroup = forwardRef<View, any>(function Subgroup(
-  {
-    subgroup,
-    className,
-    isPressable = true,
-    ...props
-  }: {
-    subgroup: EventSubgroup;
-    className?: string;
-    isPressable?: boolean;
-  },
-  ref,
-) {
-  const category = labelToCategory(subgroup.label);
-
-  return (
-    <Pressable
-      ref={ref}
-      className={cn(
-        "flex w-full flex-row gap-2 bg-background py-4 pl-4 pr-2 transition",
-        { "active:scale-[.98] active:opacity-95": isPressable },
-        className,
-      )}
-      {...props}
-    >
-      <View className="flex flex-grow flex-row gap-2">
-        <SubgroupBadge
-          className="text-small min-h-6 min-w-6"
-          category={category}
-          text={category}
-        />
-        <Text>{subgroup.totalSignedUpCount}</Text>
-      </View>
-
-      <View className="flex justify-center">
-        <ChevronRightIcon className="text-lg color-primary" />
-      </View>
-    </Pressable>
-  );
-});
 
 const isEven = (num: number) => num % 2 === 0;
