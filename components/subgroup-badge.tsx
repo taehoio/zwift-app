@@ -36,6 +36,7 @@ export const SubgroupBadge = ({
   text?: string | number | null;
 }) => (
   <View
+    testID="SubgroupBadge"
     className={cn(
       "flex h-6 min-w-6 items-center justify-center rounded-full",
       colorByCategory(category),
