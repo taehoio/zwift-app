@@ -85,7 +85,6 @@ export default function RootLayout() {
             options={{ headerTitle: "Subgroup" }}
           />
 
-          <Stack.Screen name="welcome" options={{ headerTitle: "Welcome!" }} />
           <Stack.Screen name="+not-found" />
         </Stack>
       </SafeAreaProvider>

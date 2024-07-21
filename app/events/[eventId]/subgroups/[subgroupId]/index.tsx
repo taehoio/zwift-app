@@ -5,8 +5,11 @@ import { RefreshControl, SafeAreaView, ScrollView, View } from "react-native";
 
 import { fetchEventSubgroup } from "@/api/events";
 import { Text } from "@/components";
+import { Event } from "@/components/event";
+import { ExternalLink } from "@/components/external-link";
 import { FadeInView } from "@/components/fade-in-view";
 import { LoadingIndicator } from "@/components/loading-indicator";
+import { UserList } from "@/components/user-list";
 import { cn } from "@/styles";
 
 const REFETCH_INTERVAL_THRESHOLD = 1000 * 60;
@@ -74,22 +77,22 @@ export default function SubgroupScreen() {
                 },
               )}
             >
-              <Text>Event: {eventId}</Text>
-              <Text>Subgroup: {subgroupId}</Text>
-              <Text>Name: {query.data.subgroup.name}</Text>
-              <Text>
-                Participants: {query.data.subgroup.totalSignedUpCount}
-              </Text>
-              <View>
-                {query.data.users.map((user, i) => (
-                  <Text key={user.zwift_id}>
-                    {i + 1}. {user.country_alpha3} -{" "}
-                    {user.name
-                      ? user.name
-                      : user.first_name + " " + user.last_name}
-                  </Text>
-                ))}
-              </View>
+              <ExternalLink
+                href={`https://zwiftpower.com/events.php?zid=${query.data.eventWithRoute.id}`}
+                asChild
+              >
+                <Event
+                  className="flex-1"
+                  eventWithRoute={query.data.eventWithRoute}
+                  showSubgroups={true}
+                  showFullEventName={true}
+                />
+              </ExternalLink>
+
+              <UserList
+                users={query.data.users}
+                category={query.data.subgroup.category ?? "unknown"}
+              />
             </View>
           </FadeInView>
         </ScrollView>
