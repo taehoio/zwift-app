@@ -35,7 +35,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.xissy.zwiftapp"
     },
     "web": {
       "bundler": "metro",
