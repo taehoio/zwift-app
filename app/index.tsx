@@ -13,6 +13,7 @@ export default function HomeScreen() {
   const query = useQuery({
     queryKey: ["events"],
     queryFn: fetchEvents,
+    refetchInterval: 1000 * 60 * 10,
   });
 
   const [isRefreshing, setIsRefreshing] = useState(false);

@@ -12,7 +12,7 @@ import { LoadingIndicator } from "@/components/loading-indicator";
 import { UserList } from "@/components/user-list";
 import { cn } from "@/styles";
 
-const REFETCH_INTERVAL_THRESHOLD = 1000 * 60;
+const REFETCH_INTERVAL_THRESHOLD = 1000 * 60 * 5;
 
 export default function SubgroupScreen() {
   const { eventId, subgroupId } = useLocalSearchParams();

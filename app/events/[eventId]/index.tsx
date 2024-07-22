@@ -26,7 +26,7 @@ export default function EventScreen() {
   const query = useQuery({
     queryKey: ["event", eventId],
     queryFn: fetchEvent,
-    gcTime: 1000 * 60,
+    refetchInterval: 1000 * 60,
   });
 
   const [isRefreshing, setIsRefreshing] = useState(false);
