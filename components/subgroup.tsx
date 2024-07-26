@@ -25,6 +25,7 @@ export const Subgroup = forwardRef<View, any>(function Subgroup(
 
   return (
     <Pressable
+      testID="Subgroup"
       ref={ref}
       className={cn(
         "flex w-full flex-row gap-2 bg-background py-4 pl-4 pr-2 transition",
