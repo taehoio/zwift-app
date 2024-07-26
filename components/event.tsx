@@ -37,7 +37,7 @@ export const Event = forwardRef<View, any>(function Event(
       testID="Event"
       ref={ref}
       className={cn(
-        "flex flex-row gap-0 bg-background p-2 transition",
+        "flex flex-1 flex-row gap-0 bg-background p-2 transition",
         { "active:scale-[.98] active:opacity-95": isPressable },
         className,
       )}
@@ -111,7 +111,7 @@ const RouteInfo = ({
   className?: string;
   eventWithRoute: EventWithRoute;
 }) => (
-  <View className={cn("flex flex-row gap-2 pb-0.5", className)}>
+  <View className={cn("flex flex-1 flex-row gap-2 pb-0.5", className)}>
     {er.laps > 0 && (
       <View className="flex flex-row gap-1">
         <View className="flex min-w-3.5 max-w-3.5 items-center justify-center">
@@ -161,6 +161,6 @@ const RouteInfo = ({
       </View>
     )}
 
-    <Text className="line-clamp-1 flex-grow">{er.route?.name}</Text>
+    <Text className="line-clamp-1 flex-1 flex-grow">{er.route?.name}</Text>
   </View>
 );
