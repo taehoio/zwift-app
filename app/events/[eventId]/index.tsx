@@ -26,7 +26,6 @@ export default function EventScreen() {
   const query = useQuery({
     queryKey: ["event", eventId],
     queryFn: fetchEvent,
-    refetchInterval: 1000 * 60,
   });
 
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -101,7 +100,7 @@ export default function EventScreen() {
 }
 
 const SubgroupList = ({ event }: { event: EventType }) => (
-  <View className="flex flex-col">
+  <View className="flex flex-col" testID="SubgroupList">
     {event.eventSubgroups.map((subgroup, i) => (
       <Link
         key={subgroup.id}
