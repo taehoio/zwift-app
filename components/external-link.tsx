@@ -26,6 +26,7 @@ export function ExternalLink({ href, ...rest }: Props) {
           await openBrowserAsync(href, {
             toolbarColor: backgroundColor,
             presentationStyle: WebBrowserPresentationStyle.FULL_SCREEN,
+            enableBarCollapsing: true,
           });
         }
       }}
