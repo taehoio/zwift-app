@@ -14,10 +14,4 @@ jobs:
         with:
           fetch-depth: 5
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".tool-versions"
-          cache: "npm"
-
       - uses: ArtiomTr/jest-coverage-report-action@v2

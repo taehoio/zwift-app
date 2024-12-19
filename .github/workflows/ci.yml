@@ -12,38 +12,19 @@ jobs:
         with:
           fetch-depth: 5
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version-file: ".tool-versions"
-          cache: "npm"
+          bun-version: 1.1.38
 
       - name: Install dependencies
-        run: |
-          npm ci
+        run: bun install
 
-      - name: Lint
-        run: |
-          npm run lint
+      - name: Check linting
+        run: bun run lint
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 5
+      - name: Check formatting
+        run: bun run format:check
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".tool-versions"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: |
-          npm ci
-
-      - name: Test
-        run: |
-          npm run test:coverage
+      - name: Run tests
+        run: bun run test:coverage
