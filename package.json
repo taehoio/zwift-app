@@ -11,7 +11,8 @@
     "test": "jest --watchAll",
     "test:ci": "jest",
     "test:coverage": "jest --coverage",
-    "lint": "prettier . --check && expo lint",
+    "lint": "expo lint",
+    "format:check": "prettier . --check",
     "format": "prettier . --write"
   },
   "dependencies": {
