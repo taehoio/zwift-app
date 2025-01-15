@@ -42,7 +42,7 @@ export const Subgroup = forwardRef<View, any>(function Subgroup(
         />
         <View className="flex flex-grow flex-col gap-0">
           <View className="flex flex-row items-center gap-1">
-            <UsersIcon className="h-4 w-4" />
+            <UsersIcon className="h-4 w-4 text-foreground" />
             <Text>{subgroup.totalSignedUpCount}</Text>
           </View>
           {subgroup.rangeAccessLabel && (
