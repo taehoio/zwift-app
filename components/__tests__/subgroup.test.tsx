@@ -18,11 +18,13 @@ describe("Subgroup", () => {
       id: 1,
       label: 1,
       totalSignedUpCount: 10,
+      rangeAccessLabel: "510-650",
     } as EventSubgroup;
 
     render(<Subgroup subgroup={subgroup} />);
 
     expect(screen.getByText("10")).toBeTruthy();
+    expect(screen.getByText("510-650")).toBeTruthy();
   });
 
   it("renders correctly with isPressable set to false", () => {
