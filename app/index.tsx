@@ -54,7 +54,7 @@ export default function HomeScreen() {
         >
           <FadeInView>
             <EventList
-              className={cn("opacity-100 transition duration-500", {
+              className={cn("opacity-100 transition-all duration-500", {
                 "opacity-50": isRefreshing,
               })}
               eventsWithRoute={query.data}

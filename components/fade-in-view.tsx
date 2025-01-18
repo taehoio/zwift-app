@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { Platform } from "react-native";
 import { preview } from "react-native-ide";
 import Animated, { FadeIn as AnimatedFadeIn } from "react-native-reanimated";
 
@@ -12,11 +11,7 @@ export const FadeInView = ({
   children?: ReactNode;
   props?: any;
 }) => {
-  const isWeb = Platform.OS === "web";
-
-  return isWeb ? (
-    <>{children}</>
-  ) : (
+  return (
     <Animated.View entering={AnimatedFadeIn} {...props}>
       {children}
     </Animated.View>
