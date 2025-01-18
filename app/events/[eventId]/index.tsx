@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import {
   Dimensions,
   Image,
+  Platform,
   RefreshControl,
   SafeAreaView,
   ScrollView,
@@ -72,8 +73,11 @@ export default function EventScreen() {
               {query.data.imageUrl && (
                 <Image
                   source={{ uri: query.data.imageUrl }}
-                  width={Dimensions.get("window").width}
-                  height={Dimensions.get("window").width / (100 / 35)}
+                  style={{
+                    width: Dimensions.get("window").width,
+                    height: Dimensions.get("window").width / (100 / 35),
+                  }}
+                  className="object-contain"
                   resizeMode="contain"
                 />
               )}
