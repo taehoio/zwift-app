@@ -4,7 +4,6 @@ import { useCallback, useState } from "react";
 import {
   Dimensions,
   Image,
-  Platform,
   RefreshControl,
   SafeAreaView,
   ScrollView,
