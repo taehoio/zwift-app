@@ -11,6 +11,13 @@ A React Native mobile app for Zwift racers to browse upcoming events, explore ra
 - 🔗 **ZwiftPower Integration** - Direct links to detailed event and rider information
 - 🌍 **Cross-Platform** - Works on iOS, Android, and Web browsers
 
+## Screenshots
+
+|                                    |                                    |                                    |
+| :--------------------------------: | :--------------------------------: | :--------------------------------: |
+| <img src="./docs/screenshot1.png"> | <img src="./docs/screenshot2.png"> | <img src="./docs/screenshot3.png"> |
+| <img src="./docs/screenshot4.png"> | <img src="./docs/screenshot5.png"> |
+
 ## Tech Stack
 
 - **Framework**: React Native with Expo (SDK 51)
