@@ -110,12 +110,14 @@ The app connects to the Zwift API backend at `https://zwift.taeho.io/api/v1` wit
 ## Features in Detail
 
 ### Event Browsing
+
 - Real-time list of upcoming Zwift events
 - Event type indicators (race, group ride, workout, time trial)
 - Quick view of start times, routes, and distances
 - Category badges showing available subgroups
 
 ### Race Analysis
+
 - Detailed participant lists with key metrics:
   - FTP (Functional Threshold Power)
   - W/kg (Watts per kilogram)
@@ -125,6 +127,7 @@ The app connects to the Zwift API backend at `https://zwift.taeho.io/api/v1` wit
 - Direct links to ZwiftPower profiles
 
 ### Smart Caching
+
 - Intelligent data refresh with TanStack Query
 - Exponential backoff for subgroup details
 - Pull-to-refresh on all screens
